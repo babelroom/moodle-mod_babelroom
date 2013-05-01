@@ -74,58 +74,6 @@ if ($babelroom->intro) { // Conditions to show the intro can change to look for 
 // Replace the following lines with you own code
 echo $OUTPUT->heading('');
 
-/*
-echo '<pre><code>';
-
-echo "USER\n";
-var_dump($USER);
-
-echo "course\n";
-var_dump($course);
-
-echo "\n\ncontext\n";
-var_dump($context);
-
-echo "--- timezone\n";
-var_dump($USER->timezone);
-$tz = get_user_timezone($USER->timezone);
-var_dump($tz);
-$tz = usertimezone($USER->timezone);
-var_dump($tz);
-echo "--- timezone\n";
-
-echo "\n\ncm\n";
-var_dump($cm);
-
-echo "\n\nbabelroom\n";
-var_dump($babelroom);
-
-echo "\n\nadministrator";
-$administrator = has_capability('moodle/category:manage', $context);
-var_dump($administrator);
-
-echo "\npicture---\n";
-//require_once($CFG->libdir.'/filelib.php');
-echo "\n111---\n";
-$pic = new user_picture($USER);
-$pic->size = 160;
-$murl = $pic->get_url($PAGE);
-var_dump($murl);
-$out = $murl->out(false);
-var_dump($out);
-echo "\n111---\n";
-echo "\n222---\n";
-$src->popup = true;
-$OUTPUT->render($src);
-echo "\n222---\n";
-$url = new moodle_url('/user/profile.php', array('id' => $USER->id));
-var_dump($url);
-echo "\n$url\n";
-echo "\npicture---\n";
-
-echo '</code></pre>';
-*/
-
 // Finish the page
 echo $OUTPUT->footer();
 
