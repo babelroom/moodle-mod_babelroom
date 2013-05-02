@@ -12,7 +12,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    $settings->add(new admin_setting_configtext('BabelroomAPIKey', get_string('babelroomApikey', 'babelroom'), get_string('apikey', 'babelroom'), '4b566a874d24b410f15b9ea83b0cc9c7'));
+    $settings->add(new admin_setting_configtext('BabelroomAPIKey', get_string('babelroomApikey', 'babelroom'), get_string('apikey', 'babelroom'), '4d6233a64e2ba310f05bfe8f3a5091fe'));
 }
 
 ?>
