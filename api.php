@@ -52,8 +52,9 @@ function _do_api_call($verb, $url, $data, &$result) {
             else
                 print_error($code); // this logs the http error code .. useful
             }
-        else
+        else {
             print_error('api_connect_error','babelroom');
+            }
         curl_close($ch);
         }
 
