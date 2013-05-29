@@ -31,7 +31,7 @@ $string['pluginadministration'] = 'BabelRoom administration';
 $string['pluginname'] = 'BabelRoom';
 
 $string['babelroomApikey'] = 'API Key';
-$string['apikey'] = 'The API key for your BabelRoom account. For conferences hosted on <a href="https://babelroom.com/">babelroom.com</a> create an API key by clicking the <em>Enable API Access</em> button on the BabelRoom API Credentials page here: <a href="https://my.babelroom.com/home?nav=api">https://my.babelroom.com/home?nav=api</a>. You can signup for a free account at <a href="https://babelroom.com/signup/">https://babelroom.com/signup/</a>. If you are using a private BabelRoom server please contact the server administrator for assistance. The default api_key will not work with private BabelRoom servers. 
+$string['apikey'] = 'The API key for your BabelRoom account. For conferences hosted on <a href="https://babelroom.com/">babelroom.com</a> create an API key by clicking the <em>Enable API Access</em> button on the BabelRoom API Credentials page here: <a href="https://my.babelroom.com/home?nav=api">https://my.babelroom.com/home?nav=api</a>. You can signup for a free account at <a href="https://babelroom.com/signup/">https://babelroom.com/signup/</a>. If you are using a private BabelRoom server please contact the server administrator for assistance. The default API key will not work with private BabelRoom servers.';
 $string['babelroomRoomserver'] = 'Room Server';
 $string['roomserver'] = 'The Room server. Leave the default value to use <a href="https://babelroom.com/">babelroom.com</a>. If you are using a private BabelRoom server please contact the server administrator for assistance.';
 $string['babelroomApiserver'] = 'API Server';
