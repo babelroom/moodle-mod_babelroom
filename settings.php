@@ -12,9 +12,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    $settings->add(new admin_setting_configtext('BabelRoomAPIKey', get_string('babelroomApikey', 'babelroom'), get_string('apikey', 'babelroom'), '65dc149155ab4e26d0b207eed9d3c710'));
-    $settings->add(new admin_setting_configtext('BabelRoomRoomServer', get_string('babelroomRoomserver', 'babelroom'), get_string('roomserver', 'babelroom'), 'https://bblr.co'));
-    $settings->add(new admin_setting_configtext('BabelRoomAPIServer', get_string('babelroomApiserver', 'babelroom'), get_string('apiserver', 'babelroom'), 'https://api.babelroom.com'));
+    $settings->add(new admin_setting_configtext('babelroom_api_key', get_string('babelroomApikey', 'babelroom'), get_string('apikey', 'babelroom'), '65dc149155ab4e26d0b207eed9d3c710'));
+    $settings->add(new admin_setting_configtext('babelroom_room_server', get_string('babelroomRoomserver', 'babelroom'), get_string('roomserver', 'babelroom'), 'https://bblr.co'));
+    $settings->add(new admin_setting_configtext('babelroom_api_server', get_string('babelroomApiserver', 'babelroom'), get_string('apiserver', 'babelroom'), 'https://api.babelroom.com'));
 }
 
 ?>
