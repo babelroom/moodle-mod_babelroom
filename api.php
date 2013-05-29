@@ -25,13 +25,13 @@ function _do_api_call($verb, $url, $data, &$result) {
 
     if (
         !(stripos(ini_get('disable_functions'), 'curl_init') !== FALSE) and
-        ($ch = @curl_init($CFG->BabelRoomAPIServer.$url)) !== false) {
+        ($ch = @curl_init($CFG->babelroom_api_server.$url)) !== false) {
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $verb);                                                                     
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 #        curl_setopt($ch, CURLOPT_HEADER, false); -- for later reference
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($ch, CURLOPT_USERPWD, $CFG->BabelRoomAPIKey.':');
+        curl_setopt($ch, CURLOPT_USERPWD, $CFG->babelroom_api_key.':');
         if ($data) {
             $data_string = json_encode($data);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(

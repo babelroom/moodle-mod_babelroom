@@ -47,7 +47,7 @@ if (api_create_invitation($babelroom, $USER, $pic_url, $context, $result)) {
         print_error('bad_invitation_response','babelroom');
         }
     else {
-        $url = $CFG->BabelRoomRoomServer . $babelroom->url . '?t=' . $result->token;
+        $url = $CFG->babelroom_room_server . $babelroom->url . '?t=' . $result->token;
         redirect($url);
         }
 }   /* api will already have dropped error */
