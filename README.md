@@ -1,5 +1,5 @@
 mod_babelroom
 ====================
 
-Babelroom integration module for moodle. This is a moodle activity module creating, deleting and joining Babelroom conferences.
+BabelRoom integration module for moodle. This is a moodle activity module creating, deleting and joining BabelRoom conferences.
 

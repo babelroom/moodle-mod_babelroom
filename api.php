@@ -11,11 +11,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-define('API_HOST', 'https://api.babelroom.com/v1');
-define('PAGE_HOST', 'https://bblr.co');
-
 ////////////////////////////////////////////////////////////////////////////////
-// Babelroom API calls                                                        //
+// BabelRoom API calls                                                        //
 ////////////////////////////////////////////////////////////////////////////////
 
 /* returns bool(y) */
@@ -28,13 +25,13 @@ function _do_api_call($verb, $url, $data, &$result) {
 
     if (
         !(stripos(ini_get('disable_functions'), 'curl_init') !== FALSE) and
-        ($ch = @curl_init($url)) !== false) {
+        ($ch = @curl_init($CFG->BabelRoomAPIServer.$url)) !== false) {
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $verb);                                                                     
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 #        curl_setopt($ch, CURLOPT_HEADER, false); -- for later reference
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($ch, CURLOPT_USERPWD, $CFG->BabelroomAPIKey.':');
+        curl_setopt($ch, CURLOPT_USERPWD, $CFG->BabelRoomAPIKey.':');
         if ($data) {
             $data_string = json_encode($data);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -65,7 +62,7 @@ function _do_api_call($verb, $url, $data, &$result) {
 function api_status()
 {
     $result;
-    return _do_api_call('GET', API_HOST.'/status', null, $result);
+    return _do_api_call('GET', '/api/v1/status', null, $result);
 }
 
 /* --- */
@@ -78,10 +75,10 @@ function api_create_conference(&$babelroom)
 #        'origin_id' => $babelroom->id -- we don't have the id yet because the record hasn't been created
         );
     $result = null;
-    if (!_do_api_call('POST', API_HOST.'/conferences', $params, $result) || empty($result->data) || empty($result->data->id))
+    if (!_do_api_call('POST', '/api/v1/conferences', $params, $result) || empty($result->data) || empty($result->data->id))
         return false;
     $babelroom->conference_id = $result->data->id;
-    $babelroom->url = PAGE_HOST.'/i/'.$result->data->id;
+    $babelroom->url = '/i/'.$result->data->id;
     return true;
 }
 
@@ -90,14 +87,14 @@ function api_update_conference($babelroom)
 {
     $params = array('name' => $babelroom->name, 'introduction' => $babelroom->intro);
     $result = null;
-    return _do_api_call('PUT', API_HOST.'/conferences/'.$babelroom->conference_id, $params, $result);
+    return _do_api_call('PUT', '/api/v1/conferences/'.$babelroom->conference_id, $params, $result);
 }
 
 /* --- */
 function api_delete_conference($babelroom)
 {
     $result = null;
-    return _do_api_call('DELETE', API_HOST.'/conferences/'.$babelroom->conference_id, array(), $result);
+    return _do_api_call('DELETE', '/api/v1/conferences/'.$babelroom->conference_id, array(), $result);
 }
 
 /* --- */
@@ -131,6 +128,6 @@ function api_create_invitation($babelroom, $user, $avatar_url, $context, &$resul
             'role' => (has_capability('moodle/category:manage', $context) ? 'Host': null),
             ),
         );
-    return _do_api_call('POST', API_HOST.'/add_participant/i/'.$babelroom->conference_id, $params, $result);
+    return _do_api_call('POST', '/api/v1/add_participant/i/'.$babelroom->conference_id, $params, $result);
 }
 

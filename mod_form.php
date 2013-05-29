@@ -40,7 +40,7 @@ class mod_babelroom_mod_form extends moodleform_mod {
             $mform->setType('name', PARAM_CLEAN);
         }
 #global $CFG;
-#$bblr = $CFG->BabelroomAPIKey;
+#$bblr = $CFG->BabelRoomAPIKey;
 #$mform->addElement('static', 'label1', 'babelroomsetting1', $bblr);
 #$mform->addElement('static', 'label1', 'babelroomsetting2', $bblr);
 #$mform->addElement('static', 'label2', 'babelroomsetting3', $bblr);
